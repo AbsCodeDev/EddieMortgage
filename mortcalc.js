@@ -8,235 +8,235 @@ var numberToPercent = function(input) {
     return parseFloat(input.toFixed(3)) + "%";
 }
 
-$("#initial-choice-from-home-price").on('click', function() {
+$321js("#initial-choice-from-home-price").on('click', function() {
     switchToHomePrice();
 });
-$("#initial-choice-from-income").on('click', function() {
+$321js("#initial-choice-from-income").on('click', function() {
     switchToIncome();
 });
-$("#initial-choice-from-monthly-payment").on('click', function() {
+$321js("#initial-choice-from-monthly-payment").on('click', function() {
     switchToMonthlyPayment();
 });
 var switchToHomePrice = function() {
-    $("#initial-choice-from-home-price").addClass("selected-choice");
-    $("#initial-choice-from-income").removeClass("selected-choice");
-    $("#initial-choice-from-monthly-payment").removeClass("selected-choice");
-    $(".from-home-price").show();
-    $(".from-income").hide();
-    $(".from-monthly-payment").hide();
+    $321js("#initial-choice-from-home-price").addClass("selected-choice");
+    $321js("#initial-choice-from-income").removeClass("selected-choice");
+    $321js("#initial-choice-from-monthly-payment").removeClass("selected-choice");
+    $321js(".from-home-price").show();
+    $321js(".from-income").hide();
+    $321js(".from-monthly-payment").hide();
     calculateFromHomePrice();
 }
 
 var switchToIncome = function() {
-    $("#initial-choice-from-home-price").removeClass("selected-choice");
-    $("#initial-choice-from-income").addClass("selected-choice");
-    $("#initial-choice-from-monthly-payment").removeClass("selected-choice");
-    $(".from-home-price").hide();
-    $(".from-income").show();
-    $(".from-monthly-payment").hide();
+    $321js("#initial-choice-from-home-price").removeClass("selected-choice");
+    $321js("#initial-choice-from-income").addClass("selected-choice");
+    $321js("#initial-choice-from-monthly-payment").removeClass("selected-choice");
+    $321js(".from-home-price").hide();
+    $321js(".from-income").show();
+    $321js(".from-monthly-payment").hide();
     calculateFromIncome();
 }
 
 var switchToMonthlyPayment = function() {
-    $("#initial-choice-from-home-price").removeClass("selected-choice");
-    $("#initial-choice-from-income").removeClass("selected-choice");
-    $("#initial-choice-from-monthly-payment").addClass("selected-choice");
-    $(".from-home-price").hide();
-    $(".from-income").hide();
-    $(".from-monthly-payment").show();
+    $321js("#initial-choice-from-home-price").removeClass("selected-choice");
+    $321js("#initial-choice-from-income").removeClass("selected-choice");
+    $321js("#initial-choice-from-monthly-payment").addClass("selected-choice");
+    $321js(".from-home-price").hide();
+    $321js(".from-income").hide();
+    $321js(".from-monthly-payment").show();
     calculateFromPayment();
 }
-$(".homeprice-field").on('change', function() {
-    var loanTerm = inputToNumber($("#hp-loan-term-year").val());
+$321js(".homeprice-field").on('change', function() {
+    var loanTerm = inputToNumber($321js("#hp-loan-term-year").val());
     this.value = loanTerm + " years";
-    $("#hp-loan-term-month").val(Math.round(loanTerm * 12) + " months");
+    $321js("#hp-loan-term-month").val(Math.round(loanTerm * 12) + " months");
     calculateFromHomePrice();
 });
-$("#hp-loan-amount").on('change', function() {
+$321js("#hp-loan-amount").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     var price = inputToNumber(this.value);
-    var downPayment = inputToNumber($("#hp-down-payment-amount").val());
+    var downPayment = inputToNumber($321js("#hp-down-payment-amount").val());
     var percent = (downPayment / price) * 100;
-    $("#hp-down-payment-percent").val(numberToPercent(percent));
+    $321js("#hp-down-payment-percent").val(numberToPercent(percent));
     calculateFromHomePrice();
 });
-$("#hp-interest-rate").on('change', function() {
+$321js("#hp-interest-rate").on('change', function() {
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromHomePrice();
 });
-$("#hp-home-insurance").on('change', function() {
+$321js("#hp-home-insurance").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromHomePrice();
 });
-$("#hp-property-tax").on('change', function() {
+$321js("#hp-property-tax").on('change', function() {
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromHomePrice();
 });
-$("#hp-hoa").on('change', function() {
+$321js("#hp-hoa").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromHomePrice();
 });
-$("#hp-down-payment-amount").on('change', function() {
+$321js("#hp-down-payment-amount").on('change', function() {
     var downPayment = inputToNumber(this.value);
     this.value = numberToCurrency(downPayment);
-    var price = inputToNumber($("#hp-loan-amount").val());
+    var price = inputToNumber($321js("#hp-loan-amount").val());
     var percent = (downPayment / price) * 100;
-    $("#hp-down-payment-percent").val(numberToPercent(percent));
+    $321js("#hp-down-payment-percent").val(numberToPercent(percent));
     calculateFromHomePrice();
 });
-$("#hp-down-payment-percent").on('change', function() {
+$321js("#hp-down-payment-percent").on('change', function() {
     var percent = inputToNumber(this.value);
     this.value = numberToPercent(percent);
-    var price = inputToNumber($("#hp-loan-amount").val());
+    var price = inputToNumber($321js("#hp-loan-amount").val());
     var downPayment = (percent * price) / 100;
-    $("#hp-down-payment-amount").val(numberToCurrency(downPayment));
+    $321js("#hp-down-payment-amount").val(numberToCurrency(downPayment));
     calculateFromHomePrice();
 });
-$("#i-income").on('change', function() {
+$321js("#i-income").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromIncome();
 });
-$("#i-monthly-debts").on('change', function() {
+$321js("#i-monthly-debts").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromIncome();
 });
-$("#i-interest-rate").on('change', function() {
+$321js("#i-interest-rate").on('change', function() {
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromIncome();
 });
-$("#i-debt-to-income").on('change', function () { 
+$321js("#i-debt-to-income").on('change', function () { 
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromIncome(); 
 }); 
-$("#i-loan-term-year").on('change', function() {
+$321js("#i-loan-term-year").on('change', function() {
     var loanTerm = inputToNumber(this.value);
     this.value = loanTerm + " years";
-    $("#i-loan-term-month").val(Math.round(loanTerm * 12) + " months");
+    $321js("#i-loan-term-month").val(Math.round(loanTerm * 12) + " months");
     calculateFromIncome();
 });
-$("#i-down-payment-amount").on('change', function() {
+$321js("#i-down-payment-amount").on('change', function() {
     var downPayment = inputToNumber(this.value);
     this.value = numberToCurrency(downPayment);
     calculateFromIncome(true);
 });
-$("#i-down-payment-percent").on('change', function() {
+$321js("#i-down-payment-percent").on('change', function() {
     var percent = inputToNumber(this.value);
     this.value = numberToPercent(percent);
     calculateFromIncome();
 });
-$("#i-home-insurance").on('change', function() {
+$321js("#i-home-insurance").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromIncome();
 });
-$("#i-property-tax").on('change', function() {
+$321js("#i-property-tax").on('change', function() {
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromIncome();
 });
-$("#i-hoa").on('change', function() {
+$321js("#i-hoa").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromIncome();
 });
-$("#mp-monthly-payment").on('change', function() {
+$321js("#mp-monthly-payment").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromPayment();
 });
-$("#mp-interest-rate").on('change', function() {
+$321js("#mp-interest-rate").on('change', function() {
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromPayment();
 });
-$("#mp-loan-term-year").on('change', function() {
+$321js("#mp-loan-term-year").on('change', function() {
     var loanTerm = inputToNumber(this.value);
     this.value = loanTerm + " years";
-    $("#mp-loan-term-month").val(Math.round(loanTerm * 12) + " months");
+    $321js("#mp-loan-term-month").val(Math.round(loanTerm * 12) + " months");
     calculateFromPayment();
 });
-$("#mp-down-payment-amount").on('change', function() {
+$321js("#mp-down-payment-amount").on('change', function() {
     var downPayment = inputToNumber(this.value);
     this.value = numberToCurrency(downPayment);
     calculateFromPayment(true);
 });
-$("#mp-down-payment-percent").on('change', function() {
+$321js("#mp-down-payment-percent").on('change', function() {
     var percent = inputToNumber(this.value);
     this.value = numberToPercent(percent);
     calculateFromPayment();
 });
-$("#mp-home-insurance").on('change', function() {
+$321js("#mp-home-insurance").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromPayment();
 });
-$("#mp-property-tax").on('change', function() {
+$321js("#mp-property-tax").on('change', function() {
     this.value = numberToPercent(inputToNumber(this.value));
     calculateFromPayment();
 });
-$("#mp-hoa").on('change', function() {
+$321js("#mp-hoa").on('change', function() {
     this.value = numberToCurrency(inputToNumber(this.value));
     calculateFromPayment();
 });
 
 // PMI Declaration with Onchange Function (Monthly Payment)
-$("#mp-pmi-1").on('change', function() {
+$321js("#mp-pmi-1").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromPayment();
 });
-$("#mp-pmi-2").on('change', function() {
+$321js("#mp-pmi-2").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromPayment();
 });
-$("#mp-pmi-3").on('change', function() {
+$321js("#mp-pmi-3").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromPayment();
 });
-$("#mp-pmi-4").on('change', function() {
+$321js("#mp-pmi-4").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromPayment();
 });
 
 // PMI Declaration with Onchange Function (Income)
-$("#i-pmi-1").on('change', function() {
+$321js("#i-pmi-1").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromIncome();
 });
-$("#i-pmi-2").on('change', function() {
+$321js("#i-pmi-2").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromIncome();
 });
-$("#i-pmi-3").on('change', function() {
+$321js("#i-pmi-3").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromIncome();
 });
-$("#i-pmi-4").on('change', function() {
+$321js("#i-pmi-4").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromIncome();
 });
 
 // PMI Declaration with Onchange Function (Home Price)
-$("#hp-pmi-1").on('change', function() {
+$321js("#hp-pmi-1").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromHomePrice();
 });
-$("#hp-pmi-2").on('change', function() {
+$321js("#hp-pmi-2").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromHomePrice();
 });
-$("#hp-pmi-3").on('change', function() {
+$321js("#hp-pmi-3").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromHomePrice();
 });
-$("#hp-pmi-4").on('change', function() {
+$321js("#hp-pmi-4").on('change', function() {
     this.value = inputToNumber(this.value);
     calculateFromHomePrice();
 });
 
 var calculateFromHomePrice = function() {
-    var homePrice = inputToNumber($("#hp-loan-amount").val());
-    var interest = inputToNumber($("#hp-interest-rate").val());
-    var term = Math.round(inputToNumber($("#hp-loan-term-year").val()) * 12);
-    var downPayment = inputToNumber($("#hp-down-payment-amount").val());
-    var homeInsurance = Math.round(inputToNumber($("#hp-home-insurance").val()) / 12);
-    var propertyTax = Math.round(inputToNumber($("#hp-property-tax").val()) / 100 * homePrice / 12);
-    var hoaFees = inputToNumber($("#hp-hoa").val());
+    var homePrice = inputToNumber($321js("#hp-loan-amount").val());
+    var interest = inputToNumber($321js("#hp-interest-rate").val());
+    var term = Math.round(inputToNumber($321js("#hp-loan-term-year").val()) * 12);
+    var downPayment = inputToNumber($321js("#hp-down-payment-amount").val());
+    var homeInsurance = Math.round(inputToNumber($321js("#hp-home-insurance").val()) / 12);
+    var propertyTax = Math.round(inputToNumber($321js("#hp-property-tax").val()) / 100 * homePrice / 12);
+    var hoaFees = inputToNumber($321js("#hp-hoa").val());
     var loanAmount = homePrice - downPayment;
-    $("#hp-loan-final-amount").val(numberToCurrency(loanAmount));
+    $321js("#hp-loan-final-amount").val(numberToCurrency(loanAmount));
     var piPayment = annuityCF(loanAmount, interest, term);
     var values = [Math.round(piPayment), propertyTax, homeInsurance];
     if (hoaFees > 0)
@@ -253,15 +253,15 @@ var calculateFromHomePrice = function() {
 }
 
 var calculateFromIncome = function(calcFromDownPaymentAmount) {
-    var monthlyIncome = inputToNumber($("#i-income").val()) / 12;
-    var debt = inputToNumber($("#i-monthly-debts").val());
-    var dti = inputToNumber($("#i-debt-to-income").val()) / 100;
-    var downPayment = calcFromDownPaymentAmount ? inputToNumber($("#i-down-payment-amount").val()) : inputToNumber($("#i-down-payment-percent").val()) / 100;
-    var interestRate = inputToNumber($("#i-interest-rate").val()) / 1200;
-    var term = inputToNumber($("#i-loan-term-year").val()) * 12;
-    var homeInsurance = inputToNumber($("#i-home-insurance").val()) / 12;
-    var propertyTaxPercent = inputToNumber($("#i-property-tax").val()) / 1200;
-    var hoaFees = inputToNumber($("#i-hoa").val());
+    var monthlyIncome = inputToNumber($321js("#i-income").val()) / 12;
+    var debt = inputToNumber($321js("#i-monthly-debts").val());
+    var dti = inputToNumber($321js("#i-debt-to-income").val()) / 100;
+    var downPayment = calcFromDownPaymentAmount ? inputToNumber($321js("#i-down-payment-amount").val()) : inputToNumber($321js("#i-down-payment-percent").val()) / 100;
+    var interestRate = inputToNumber($321js("#i-interest-rate").val()) / 1200;
+    var term = inputToNumber($321js("#i-loan-term-year").val()) * 12;
+    var homeInsurance = inputToNumber($321js("#i-home-insurance").val()) / 12;
+    var propertyTaxPercent = inputToNumber($321js("#i-property-tax").val()) / 1200;
+    var hoaFees = inputToNumber($321js("#i-hoa").val());
     var maxDTICF = (monthlyIncome * dti) - debt;
     var maxFinanceCF = maxDTICF - hoaFees - homeInsurance;
     var miRate = getMIRateIncome(.20) / 12;
@@ -274,31 +274,31 @@ var calculateFromIncome = function(calcFromDownPaymentAmount) {
         var oldMIRate = miRate;
         miRate = getMIRateIncome((Math.round(ltv * 100000) / 100000)) / 12;
     } while (miRate != oldMIRate);
-    $("#i-loan-final-amount").val(numberToCurrency(financedPrice));
+    $321js("#i-loan-final-amount").val(numberToCurrency(financedPrice));
     if (calcFromDownPaymentAmount) {
-        $("#mp-down-payment-amount").val(numberToPercent(downPayment / homePrice));
+        $321js("#mp-down-payment-amount").val(numberToPercent(downPayment / homePrice));
     } else {
-        $("#i-down-payment-amount").val(numberToCurrency(homePrice - financedPrice));
+        $321js("#i-down-payment-amount").val(numberToCurrency(homePrice - financedPrice));
     }
     var paymentPI = financedPrice / factor;
     var finalPayment = maxFinanceCF + hoaFees + homeInsurance;
-    $("#i-output-home-price").html(numberToCurrency(Math.round(homePrice)));
-    $("#i-output-monthly-payment").html(numberToCurrency(finalPayment));
+    $321js("#i-output-home-price").html(numberToCurrency(Math.round(homePrice)));
+    $321js("#i-output-monthly-payment").html(numberToCurrency(finalPayment));
     var amortizationTable = createAmortizationTable(paymentPI, financedPrice, interestRate * 1200, term);
     var canvas = document.getElementById("canvasIncomeAmortization");
     drawAmortizationChart(amortizationTable, canvas);
 }
 
 var calculateFromPayment = function(calcFromDownPaymentAmount) {
-    var monthlyPayment = inputToNumber($("#mp-monthly-payment").val());
-    var interestRate = inputToNumber($("#mp-interest-rate").val()) / 1200;
-    var term = inputToNumber($("#mp-loan-term-year").val()) * 12;
-    var downPayment = inputToNumber($("#mp-down-payment-percent").val()) / 100;
+    var monthlyPayment = inputToNumber($321js("#mp-monthly-payment").val());
+    var interestRate = inputToNumber($321js("#mp-interest-rate").val()) / 1200;
+    var term = inputToNumber($321js("#mp-loan-term-year").val()) * 12;
+    var downPayment = inputToNumber($321js("#mp-down-payment-percent").val()) / 100;
 
-    var numb11 = $("#mp-downPayment").val(numberToCurrency(downPayment));
-    var homeInsurance = inputToNumber($("#mp-home-insurance").val()) / 12;
-    var propertyTaxPercent = inputToNumber($("#mp-property-tax").val()) / 1200;
-    var hoaFees = inputToNumber($("#mp-hoa").val());
+    var numb11 = $321js("#mp-downPayment").val(numberToCurrency(downPayment));
+    var homeInsurance = inputToNumber($321js("#mp-home-insurance").val()) / 12;
+    var propertyTaxPercent = inputToNumber($321js("#mp-property-tax").val()) / 1200;
+    var hoaFees = inputToNumber($321js("#mp-hoa").val());
     var maxDTICF = monthlyPayment;
     var maxFinanceCF = maxDTICF - hoaFees - homeInsurance;
     var miRate = getMIRatePayment(downPayment);
@@ -309,13 +309,13 @@ var calculateFromPayment = function(calcFromDownPaymentAmount) {
     homePrice = homePriceFromMonthlyPayment(maxFinanceCF, interestRate, term, propertyTaxPercent, downPayment, miRate / 12);
 
     financedPrice = homePrice - (homePrice * downPayment);
-    $("#mp-down-payment-amount").val(numberToCurrency((homePrice * downPayment)));
+    $321js("#mp-down-payment-amount").val(numberToCurrency((homePrice * downPayment)));
 
     var paymentPI = financedPrice / factor;
     var finalPayment = maxFinanceCF + hoaFees + homeInsurance;
 
-    $("#mp-loan-final-amount").val(numberToCurrency(financedPrice));
-    $("#mp-output-home-price").html(numberToCurrency(Math.round(homePrice)));
+    $321js("#mp-loan-final-amount").val(numberToCurrency(financedPrice));
+    $321js("#mp-output-home-price").html(numberToCurrency(Math.round(homePrice)));
 
     var amortizationTable = createAmortizationTable(paymentPI, financedPrice, interestRate * 1200, term);
     var canvas = document.getElementById("canvasMonthlyPaymentAmortization");
@@ -337,13 +337,13 @@ var calculateMI = function(homePrice, downPayment) {
 var getMIRatePrice = function(ltv) {
     var miRate = 0;
     if (ltv < 0.05) {
-        miRate = inputToNumber($("#hp-pmi-1").val());
+        miRate = inputToNumber($321js("#hp-pmi-1").val());
     } else if (ltv < 0.10) {
-        miRate = inputToNumber($("#hp-pmi-2").val());
+        miRate = inputToNumber($321js("#hp-pmi-2").val());
     } else if (ltv < 0.15) {
-        miRate = inputToNumber($("#hp-pmi-3").val());
+        miRate = inputToNumber($321js("#hp-pmi-3").val());
     } else if (ltv < 0.20) {
-        miRate = inputToNumber($("#hp-pmi-4").val());
+        miRate = inputToNumber($321js("#hp-pmi-4").val());
     }
     return miRate;
 }
@@ -351,13 +351,13 @@ var getMIRatePrice = function(ltv) {
 var getMIRateIncome = function(ltv) {
     var miRate = 0;
     if (ltv < 0.05) {
-        miRate = inputToNumber($("#i-pmi-1").val());
+        miRate = inputToNumber($321js("#i-pmi-1").val());
     } else if (ltv < 0.10) {
-        miRate = inputToNumber($("#i-pmi-2").val());
+        miRate = inputToNumber($321js("#i-pmi-2").val());
     } else if (ltv < 0.15) {
-        miRate = inputToNumber($("#i-pmi-3").val());
+        miRate = inputToNumber($321js("#i-pmi-3").val());
     } else if (ltv < 0.20) {
-        miRate = inputToNumber($("#i-pmi-4").val());
+        miRate = inputToNumber($321js("#i-pmi-4").val());
     }
     return miRate;
 }
@@ -365,13 +365,13 @@ var getMIRateIncome = function(ltv) {
 var getMIRatePayment = function(ltv) {
     var miRate = 0;
     if (ltv < 0.05) {
-        miRate = inputToNumber($("#mp-pmi-1").val());
+        miRate = inputToNumber($321js("#mp-pmi-1").val());
     } else if (ltv < 0.10) {
-        miRate = inputToNumber($("#mp-pmi-2").val());
+        miRate = inputToNumber($321js("#mp-pmi-2").val());
     } else if (ltv < 0.15) {
-        miRate = inputToNumber($("#mp-pmi-3").val());
+        miRate = inputToNumber($321js("#mp-pmi-3").val());
     } else if (ltv < 0.20) {
-        miRate = inputToNumber($("#mp-pmi-4").val());
+        miRate = inputToNumber($321js("#mp-pmi-4").val());
     }
     return miRate;
 }
@@ -571,15 +571,15 @@ var drawAmortizationChart = function(table, canvas) {
     context.fillText("Monthly Payment", (maxY + minY) / 2, minY - 40);
     context.setTransform(1, 0, 0, 1, 0, 0);
 }
-$(".advanced-label").click(function() {
-    if ($(".advanced-options").hasClass("hidden-options")) {
-        $(".advanced-options").slideDown();
-        $(".advanced-options").removeClass("hidden-options");
-        $(".advanced-label a").html("hide");
+$321js(".advanced-label").click(function() {
+    if ($321js(".advanced-options").hasClass("hidden-options")) {
+        $321js(".advanced-options").slideDown();
+        $321js(".advanced-options").removeClass("hidden-options");
+        $321js(".advanced-label a").html("hide");
     } else {
-        $(".advanced-options").slideUp();
-        $(".advanced-options").addClass("hidden-options");
-        $(".advanced-label a").html("show");
+        $321js(".advanced-options").slideUp();
+        $321js(".advanced-options").addClass("hidden-options");
+        $321js(".advanced-label a").html("show");
     }
 });
 
